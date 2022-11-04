@@ -1,0 +1,72 @@
+<div class="content">
+  <mat-card class="content__card">
+    <mat-card-header class="content__header">
+      <div mat-card-avatar class="content__header-image"></div>
+      <mat-card-title>Team Generator</mat-card-title>
+      <mat-card-subtitle>Random team generator</mat-card-subtitle>
+    </mat-card-header>
+    <ul class="content__list">
+      <li class="content__list-item" *ngFor="let member of members">
+        {{member}}
+      </li>
+    </ul>
+    <div class="content__add-container">
+      <form autocomplete="off" class="content__add-form">
+        <mat-form-field class="content__form-field" appearance="fill">
+          <input
+            #member
+            matInput
+            type="text"
+            placeholder="Team member name"
+            (input)="onNameInput(member.value)"
+            [value]="newMemberName"
+          >
+        </mat-form-field>
+        <button
+          mat-stroked-button
+          color="primary"
+          class="content__add-btn"
+          (click)="addMember()"
+        >
+          Add member
+        </button>
+        <mat-card-subtitle *ngIf="members.length > 0" class="members-count">
+          Total team members: {{members.length}}
+        </mat-card-subtitle>
+      </form>
+    </div>
+    <div class="content__input-container">
+      <form autocomplete="off" class="content__generate-form">
+        <mat-form-field class="content__form-field" appearance="fill">
+          <input
+            #numberOfTeams
+            matInput
+            type="number"
+            placeholder="# of teams"
+            (input)="onNumOfTeamsInput(numberOfTeams.value)"
+            [value]="numOfTeams"
+          >
+        </mat-form-field>
+        <button
+          mat-flat-button
+          color="primary"
+          class="content__btn"
+          (click)="generateTeams()"
+        >
+          Generate
+        </button>
+      </form>
+    </div>
+
+    <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+
+    <mat-card-content *ngIf="teams.length" class="content__teams-container">
+      <mat-card *ngFor="let team of teams; let i = index"  class="content__team-container">
+        <h3>Team {{i + 1}}</h3>
+        <ul>
+          <li *ngFor="let member of team">{{member | titlecase}}</li>
+        </ul>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
