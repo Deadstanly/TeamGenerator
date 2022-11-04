@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.content {
+  max-width: 700px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__card {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+
+  &__header-image {
+    background-image: url('./assets/img/icon.png');
+    background-size: cover;
+  }
+
+  &__header {
+    padding: 20px;
+    display: flex;
+    justify-content: center
+  }
+
+  &__list {
+    min-height: 100px;
+    max-height: 350px;
+    overflow: auto;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0 0 30px;
+
+    &-item {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__add-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  &__add-form,
+  &__generate-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__form-field {
+    width: 100%;
+  }
+
+  &__btn {
+    width: 180px;
+  }
+
+  &__teams-container {
+    margin-top: 20px;
+  }
+
+  &__team-container {
+    margin: 30px auto;
+  }
+}
+
+.mat-form-field-infix {
+  border-top: none;
+}
+
+.error {
+  color: red;
+}
+
+.members-count {
+  margin-top: 10px!important;
+}
